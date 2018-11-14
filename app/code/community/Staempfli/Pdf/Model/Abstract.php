@@ -18,6 +18,8 @@
  * @copyright 2016 Staempfli AG (http://www.staempfli.com/)
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
+
+require_once(Mage::getBaseDir('lib') . '/mikehaertl/wkhtmlto/pdf.php');
 abstract class Staempfli_Pdf_Model_Abstract extends Mage_Core_Model_Abstract
 {
     const ORIENTATION_PORTRAIT = 'Portrait';
@@ -44,7 +46,8 @@ abstract class Staempfli_Pdf_Model_Abstract extends Mage_Core_Model_Abstract
     protected function _construct()
     {
         Mage::dispatchEvent('composer_autoload', array('web2print' => $this));
-        $this->pdf = new \mikehaertl\wkhtmlto\Pdf();
+
+        $this->pdf = new Pdf();
         if ($command = Mage::getStoreConfig(self::XML_PDF_COMMAND_PATH)) {
             $this->setCommandOptions(array('command' => $command));
         }
