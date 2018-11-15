@@ -19,7 +19,7 @@
  * @license   http://opensource.org/licenses/gpl-3.0 GNU General Public License, version 3 (GPLv3)
  */
 
-require_once(Mage::getBaseDir('lib') . '/mikehaertl/wkhtmlto/pdf.php');
+require_once(Mage::getBaseDir('lib') . '/mikehaertl/wkhtmlto/Pdf.php');
 abstract class Staempfli_Pdf_Model_Abstract extends Mage_Core_Model_Abstract
 {
     const ORIENTATION_PORTRAIT = 'Portrait';
